@@ -1,4 +1,5 @@
 import { Model } from "@vuex-orm/core";
+import List from "./List.class";
 import Profile from "./Profile.class";
 export default class User extends Model {
   static entity = "users";
@@ -10,6 +11,8 @@ export default class User extends Model {
       email: this.attr(""),
       // relationships
       profile: this.hasOne(Profile, "user_id"),
+      // A user has many List
+      lists: this.hasMany(List, "user_id"),
     };
   }
 }
