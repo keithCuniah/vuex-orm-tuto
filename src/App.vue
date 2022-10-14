@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1 style="color: orange">{{ user.name }}</h1>
-    <p>{{ user.profile.bio }}</p>
+    <h1 style="color: orange">{{ profile.user.name }}</h1>
+    <p>{{ profile.bio }}</p>
 
     <input type="text" v-model="form.body" />
     <button @click="addItem">Add Item</button>
@@ -25,21 +25,18 @@ export default {
         id: 28,
         name: "Daboudi",
         email: "daboudi@patati.com",
-      },
-    });
-
-    Profile.insert({
-      data: {
-        id: 55,
-        bio: "is blue",
-        life_bio: "sing that he is blue",
-        user_id: 28,
+        profile: {
+          id: 55,
+          bio: "is blue",
+          life_bio: "sing that he is blue",
+          user_id: 28,
+        },
       },
     });
   },
   computed: {
-    user() {
-      return User.query().with("profile").find(28);
+    profile() {
+      return Profile.query().with("user").find(55);
     },
     items() {
       return Item.all();
