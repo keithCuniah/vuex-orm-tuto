@@ -74,17 +74,6 @@ export default {
     user() {
       return User.query().with("lists.items").with("items").find(28);
     },
-    // items() {
-    //   // let items = [];
-    //   // this.user.lists.forEach((list) => {
-    //   //   items.push(...list.items);
-    //   // });
-    //   // return items;
-
-    //   // OR
-
-    //   return User.query().with("items").find(28).items;
-    // },
   },
   methods: {
     addList() {
