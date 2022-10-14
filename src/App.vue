@@ -29,7 +29,6 @@ export default {
           id: 55,
           bio: "is blue",
           life_bio: "sing that he is blue",
-          user_id: 28,
         },
       },
     });
