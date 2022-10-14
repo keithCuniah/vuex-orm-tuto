@@ -5,6 +5,8 @@ import Item from "../classes/Item.class";
 import User from "../classes/User.class";
 import Profile from "../classes/Profile.class";
 import List from "../classes/List.class";
+import Role from "../classes/Role.class";
+import RoleUser from "../classes/RoleUser.class";
 
 Vue.use(Vuex);
 
@@ -14,5 +16,7 @@ database.register(Item);
 database.register(User);
 database.register(Profile);
 database.register(List);
+database.register(Role);
+database.register(RoleUser);
 
 export default new Vuex.Store({ plugins: [VuexORM.install(database)] });

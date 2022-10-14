@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div style="float: left">
+    <ManyToManyComponent />
+    <!-- <div style="float: left">
       <h1>{{ user.name }}</h1>
 
       <input type="text" v-model="form.title" />
@@ -13,7 +14,7 @@
       <ul>
         <li v-for="item in user.items" :key="item.id" v-text="item.body" />
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -21,10 +22,12 @@
 import List from "./classes/List.class";
 import User from "./classes/User.class";
 import ListComponent from "./components/List.component.vue";
+import ManyToManyComponent from "./components/ManyToMany.component.vue";
 export default {
   name: "App",
   components: {
     ListComponent,
+    ManyToManyComponent,
   },
   data() {
     return {
