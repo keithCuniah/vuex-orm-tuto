@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <h1 style="color: orange">{{ profile.user.name }}</h1>
-    <p>{{ profile.bio }}</p>
+    <div v-for="profile in profiles" :key="profile.id">
+      <h1 style="color: orange">{{ profile.user.name }}</h1>
+      <p>{{ profile.bio }}</p>
+    </div>
 
     <input type="text" v-model="form.body" />
     <button @click="addItem">Add Item</button>
@@ -21,21 +23,43 @@ export default {
   },
   beforeMount() {
     User.insert({
-      data: {
-        id: 28,
-        name: "Daboudi",
-        email: "daboudi@patati.com",
-        profile: {
-          id: 55,
-          bio: "is blue",
-          life_bio: "sing that he is blue",
+      data: [
+        {
+          id: 28,
+          name: "Daboudi",
+          email: "daboudi@patati.com",
+          profile: {
+            id: 55,
+            bio: "is blue",
+            life_bio: "sing that he is blue",
+          },
         },
-      },
+        {
+          id: 29,
+          name: "Dabouda",
+          email: "dabouda@patato.com",
+          profile: {
+            id: 56,
+            bio: "is also blue",
+            life_bio: "also sing that he is blue",
+          },
+        },
+        {
+          id: 30,
+          name: "JeanBon",
+          email: "jeanbon@youhou.com",
+          profile: {
+            id: 57,
+            bio: "is vegan",
+            life_bio: "kill all the vegetables",
+          },
+        },
+      ],
     });
   },
   computed: {
-    profile() {
-      return Profile.query().with("user").find(55);
+    profiles() {
+      return Profile.query().with("user").get();
     },
     items() {
       return Item.all();
