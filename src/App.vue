@@ -1,18 +1,18 @@
 <template>
   <div id="app">
+    <h1>{{ user.name }}</h1>
     <div v-for="list in user.lists" :key="list.id">
       {{ list.title }}
       <ul>
         <li v-for="item in list.items" :key="item.id" v-text="item.body" />
       </ul>
     </div>
-
-    <input type="text" v-model="form.body" />
   </div>
 </template>
 
 <script>
 import Item from "./classes/Item.class";
+import List from "./classes/List.class";
 import User from "./classes/User.class";
 
 export default {
@@ -29,36 +29,16 @@ export default {
           email: "daboudi@patati.com",
           lists: [
             {
-              id: 623,
+              id: 62,
               title: "shopping",
-              items: [
-                {
-                  id: 602,
-                  body: "banana",
-                },
-                {
-                  id: 603,
-                  body: "strawberries",
-                },
-              ],
             },
             {
-              id: 624,
-              title: "life goals",
-              items: [
-                {
-                  id: 604,
-                  body: "be a hero",
-                },
-                {
-                  id: 605,
-                  body: "be humble",
-                },
-              ],
+              id: 63,
+              title: "favourite things",
             },
             {
-              id: 625,
-              title: "friends",
+              id: 64,
+              title: "todo",
             },
           ],
         },
