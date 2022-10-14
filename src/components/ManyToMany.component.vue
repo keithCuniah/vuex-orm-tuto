@@ -4,6 +4,8 @@
       <h1>{{ role.title }}</h1>
       <li v-for="user in role.users" :key="user.id" v-text="user.name" />
     </ul>
+
+    <button @click="changeName">change name</button>
   </div>
 </template>
 
@@ -47,6 +49,16 @@ export default {
   computed: {
     roles() {
       return Role.query().with("users").get();
+    },
+  },
+  methods: {
+    changeName() {
+      User.update({
+        where: 28,
+        data: {
+          name:"Jean Bon"
+        },
+      });
     },
   },
 };
