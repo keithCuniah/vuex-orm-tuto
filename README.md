@@ -1,2 +1,19 @@
 # vuex-orm-tuto
-vuex ORM tutorial from https://www.youtube.com/watch?v=D0bOiA7uxZI&amp;list=PLFZAa7EupbB5-MLdEuVP8jXW2WADpvI39
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
