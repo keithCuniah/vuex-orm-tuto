@@ -1,24 +1,30 @@
 <template>
   <div id="app">
     <h1>{{ user.name }}</h1>
-    <div v-for="list in user.lists" :key="list.id">
-      {{ list.title }}
-      <ul>
-        <li v-for="item in list.items" :key="item.id" v-text="item.body" />
-      </ul>
-    </div>
+
+    <input type="text" v-model="form.title" />
+    <button @click="addList">Add List</button>
+
+    <ListComponent v-for="list in user.lists" :key="list.id" :list="list" />
   </div>
 </template>
 
 <script>
-import Item from "./classes/Item.class";
 import List from "./classes/List.class";
 import User from "./classes/User.class";
-
+import ListComponent from "./components/List.component.vue";
 export default {
   name: "App",
+  components: {
+    ListComponent,
+  },
   data() {
-    return { form: { body: "" } };
+    return {
+      form: {
+        title: "",
+        user_id: 28,
+      },
+    };
   },
   beforeMount() {
     User.insert({
@@ -27,20 +33,6 @@ export default {
           id: 28,
           name: "Daboudi",
           email: "daboudi@patati.com",
-          lists: [
-            {
-              id: 62,
-              title: "shopping",
-            },
-            {
-              id: 63,
-              title: "favourite things",
-            },
-            {
-              id: 64,
-              title: "todo",
-            },
-          ],
         },
       ],
     });
@@ -51,8 +43,8 @@ export default {
     },
   },
   methods: {
-    addItem() {
-      Item.insert({ data: this.form });
+    addList() {
+      List.insert({ data: this.form });
     },
   },
 };
