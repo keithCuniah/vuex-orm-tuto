@@ -6,6 +6,11 @@ export default class Comment extends Model {
     return {
       id: this.uid(),
       body: this.attr(null),
+      commentable_id: this.attr(null),
+      commentable_type: this.attr(null),
+
+      // relationship
+      commentable: this.morphTo("commentable_id", "commentable_type"),
     };
   }
 }
