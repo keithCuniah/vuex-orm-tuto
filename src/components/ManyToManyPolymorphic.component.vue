@@ -20,12 +20,31 @@
         </li>
       </div>
     </div>
+    <div class="">
+      <h2>Tags</h2>
+      <div class="" v-for="tag in tags" :key="tag.id">
+        <h3>{{ tag.name }}</h3>
+        <div class="" style="margin-left: 12px">
+          <h4>Videos</h4>
+          <div class="" v-for="video in tag.videos" :key="video.id">
+            {{ video.url }}
+          </div>
+        </div>
+        <div class="" style="margin-left: 12px">
+          <h4>Posts</h4>
+          <div class="" v-for="post in tag.posts" :key="post.id">
+            {{ post.title }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Video from "@/classes/Video.class";
 import Post from "@/classes/Post.class";
+import Tag from "@/classes/Tag.class";
 export default {
   name: "ManyToManyPolymorphic",
   mounted() {
@@ -61,6 +80,9 @@ export default {
     },
     posts() {
       return Post.query().with("tags").get();
+    },
+    tags() {
+      return Tag.query().with("videos").with("posts").get();
     },
   },
 };
