@@ -1,24 +1,9 @@
 <template>
   <div class="">
-    <div>
-      <h2>Videos</h2>
-      <div class="" v-for="video in videos" :key="video.id">
-        {{ video.url }}
-
-        <li v-for="comment in video.comments" :key="comment.id">
-          {{ comment.body }}
-        </li>
-      </div>
-    </div>
-    <div>
-      <h2>Posts</h2>
-      <div class="" v-for="post in posts" :key="post.id">
-        {{ post.title }}
-
-        <li v-for="comment in post.comments" :key="comment.id">
-          {{ comment.body }}
-        </li>
-      </div>
+    <h2>Comments</h2>
+    <div class="" v-for="comment in comments" :key="comment.id">
+      {{ comment.body }} -
+      <strong>{{ comment.commentable.constructor.entity }}</strong>
     </div>
   </div>
 </template>
@@ -26,6 +11,7 @@
 <script>
 import Video from "@/classes/Video.class";
 import Post from "@/classes/Post.class";
+import Comment from "@/classes/Comment.class";
 export default {
   name: "OneToManyPolymorphic",
   mounted() {
@@ -94,6 +80,9 @@ export default {
     },
     posts() {
       return Post.query().with("comments").get();
+    },
+    comments() {
+      return Comment.query().with("commentable").get();
     },
   },
 };
