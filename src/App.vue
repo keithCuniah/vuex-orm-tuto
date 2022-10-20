@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <OneToManyPolymorphicComponent />
+    <ManyToManyPolymorphicComponent />
     <!-- <div style="float: left">
       <h1>{{ user.name }}</h1>
 
@@ -22,12 +22,12 @@
 import List from "./classes/List.class";
 import User from "./classes/User.class";
 import ListComponent from "./components/List.component.vue";
-import OneToManyPolymorphicComponent from "./components/OneToManyPolymorphic.component.vue";
+import ManyToManyPolymorphicComponent from "./components/ManyToManyPolymorphic.component.vue";
 export default {
   name: "App",
   components: {
     ListComponent,
-    OneToManyPolymorphicComponent,
+    ManyToManyPolymorphicComponent,
   },
   data() {
     return {
