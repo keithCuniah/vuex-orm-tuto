@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     results() {
-      return User.query().withAllRecursive(5).get();
+      return User.query().with('posts.*').get();
     },
   },
 };
