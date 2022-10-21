@@ -16,7 +16,11 @@ export default {
   },
   computed: {
     results() {
-      return User.query().with('posts.*').get();
+      return User.query()
+        .with("posts", (query) => {
+          query.where("published", true);
+        })
+        .get();
     },
   },
 };
