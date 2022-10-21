@@ -17,7 +17,11 @@ export default {
   },
   computed: {
     results() {
-      return Post.query().hasNot("comments").get();
+      return Post.query()
+        .whereHasNot("comments", (query) => {
+          query.where("user_id", 1);
+        })
+        .get();
     },
   },
 };
