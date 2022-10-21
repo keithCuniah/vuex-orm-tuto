@@ -1,5 +1,7 @@
 <template>
   <div>
+    <button @click="offset = offset - 2">Previous</button>
+    <button @click="offset = offset + 2">Next</button>
     <pre>
         {{ result }}
     </pre>
@@ -10,6 +12,11 @@
 import User from "@/classes/User.class";
 export default {
   name: "AdvancedQueries",
+  data() {
+    return {
+      offset: 0,
+    };
+  },
   mounted() {
     User.insert({
       data: [
@@ -42,7 +49,7 @@ export default {
   },
   computed: {
     result() {
-      return User.query().orderBy("first_name", "desc").get();
+      return User.query().limit(3).offset(this.offset).get();
     },
   },
 };
