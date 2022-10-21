@@ -42,11 +42,7 @@ export default {
   },
   computed: {
     result() {
-      return User.query()
-        .where((user, query) => {
-          query.where("first_name", "Jean").orWhere("first_name", "Juan");
-        })
-        .get();
+      return User.query().orderBy("first_name", "desc").get();
     },
   },
 };
