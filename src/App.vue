@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AdvancedRelationshipQueriesComponent />
+    <SingleTableInheritance />
     <!-- <div style="float: left">
       <h1>{{ user.name }}</h1>
 
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import AdvancedRelationshipQueriesComponent from "./components/AdvancedRelationshipQueries.component.vue";
+import SingleTableInheritance from "./components/SingleTableInheritance.component.vue";
 export default {
   name: "App",
   components: {
-    AdvancedRelationshipQueriesComponent,
+    SingleTableInheritance,
   },
   data() {
     return {

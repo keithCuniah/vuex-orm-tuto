@@ -1,5 +1,5 @@
 import { Model } from "@vuex-orm/core";
-import User from "./User.class";
+import { User } from "./UserHierarchy.class";
 export default class Profile extends Model {
   static entity = "profiles";
 

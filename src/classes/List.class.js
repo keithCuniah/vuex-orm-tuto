@@ -1,6 +1,6 @@
 import { Model } from "@vuex-orm/core";
 import Item from "./Item.class";
-import User from "./User.class";
+import { User } from "./UserHierarchy.class";
 
 export default class List extends Model {
   static entity = "lists";

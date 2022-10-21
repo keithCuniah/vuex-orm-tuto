@@ -1,6 +1,6 @@
 import { Model } from "@vuex-orm/core";
 import RoleUser from "./RoleUser.class";
-import User from "./User.class";
+import { User } from "./UserHierarchy.class";
 
 export default class Role extends Model {
   static entity = "roles";

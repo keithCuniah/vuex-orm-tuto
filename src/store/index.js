@@ -2,7 +2,6 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexORM from "@vuex-orm/core";
 import Item from "../classes/Item.class";
-import User from "../classes/User.class";
 import Profile from "../classes/Profile.class";
 import List from "../classes/List.class";
 import Role from "../classes/Role.class";
@@ -13,6 +12,12 @@ import Video from "../classes/Video.class";
 import Comment from "../classes/Comment.class";
 import Tag from "../classes/Tag.class";
 import Taggable from "../classes/Taggable.class";
+import {
+  User,
+  Admin,
+  Publisher,
+  SuperAdmin,
+} from "../classes/UserHierarchy.class";
 
 Vue.use(Vuex);
 
@@ -30,5 +35,8 @@ database.register(Video);
 database.register(Comment);
 database.register(Tag);
 database.register(Taggable);
+database.register(Publisher);
+database.register(Admin);
+database.register(SuperAdmin);
 
 export default new Vuex.Store({ plugins: [VuexORM.install(database)] });

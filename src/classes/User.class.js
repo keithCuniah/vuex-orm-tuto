@@ -5,10 +5,10 @@ import List from "./List.class";
 import Profile from "./Profile.class";
 import Role from "./Role.class";
 import RoleUser from "./RoleUser.class";
-import moment from "moment";
 import Post from "./Post.class";
+import { Admin, Publisher, SuperAdmin } from "./UserHierarchy.class";
 
-export default class User extends Model {
+export class User extends Model {
   static entity = "users";
 
   get full_name() {
@@ -20,20 +20,32 @@ export default class User extends Model {
       last_name(value) {
         return value.toUpperCase();
       },
-      date_born(value) {
-        if (value) return moment(value);
-      },
+    };
+  }
+
+  post() {
+    console.log("Making a post");
+  }
+  login() {
+    console.log("logging in");
+  }
+
+  static types() {
+    return {
+      ADMIN: Admin,
+      PUBLISHER: Publisher,
+      SUPER_ADMIN: SuperAdmin,
     };
   }
 
   static fields() {
     return {
       id: this.uid(),
+      type: this.attr("USER"),
       first_name: this.attr(""),
       last_name: this.attr(""),
       email: this.attr(""),
       age: this.attr(""),
-      date_born: this.attr(""),
       // relationships
       posts: this.hasMany(Post, "user_id"),
       profile: this.hasOne(Profile, "user_id"),
