@@ -57,8 +57,11 @@ export default () => {
         {
           id: 4,
           title: "Le feu ça brule et l'eau ça mouille",
+          published: true,
           tags: [{ id: 2, title: "song" }],
-          comments: [{ user_id: 3, id: 4, body: "True story" }],
+          comments: [
+            { user_id: 3, id: 4, body: "True story", type: "reviewed" },
+          ],
         },
       ],
     },

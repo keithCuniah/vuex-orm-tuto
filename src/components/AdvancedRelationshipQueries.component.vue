@@ -17,8 +17,8 @@ export default {
   computed: {
     results() {
       return User.query()
-        .with("posts", (query) => {
-          query.where("published", true);
+        .with("posts.comments", (query) => {
+          query.where("type", 'reviewed');
         })
         .get();
     },
