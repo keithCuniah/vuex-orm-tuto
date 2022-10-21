@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ManyToManyPolymorphicComponent />
+    <AccessorsAndMutatorsComponent />
     <!-- <div style="float: left">
       <h1>{{ user.name }}</h1>
 
@@ -19,66 +19,62 @@
 </template>
 
 <script>
-import List from "./classes/List.class";
-import User from "./classes/User.class";
-import ListComponent from "./components/List.component.vue";
-import ManyToManyPolymorphicComponent from "./components/ManyToManyPolymorphic.component.vue";
+import AccessorsAndMutatorsComponent from "./components/AccessorsAndMutators.component.vue";
 export default {
   name: "App",
   components: {
-    ListComponent,
-    ManyToManyPolymorphicComponent,
+    AccessorsAndMutatorsComponent,
   },
   data() {
     return {
-      form: {
-        title: "",
-        user_id: 28,
-      },
+      // form: {
+      //   title: "",
+      //   user_id: 28,
+      // },
     };
   },
   beforeMount() {
-    User.insert({
-      data: [
-        {
-          id: 28,
-          name: "Daboudi",
-          email: "daboudi@patati.com",
-          lists: [
-            {
-              id: 22,
-              title: "shopping",
-              items: [
-                {
-                  id: 62,
-                  body: "banana",
-                },
-              ],
-            },
-            {
-              id: 2,
-              title: "todo",
-              items: [
-                {
-                  id: 6,
-                  body: "do a todo list",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    });
+    // User.insert({
+    //   data: [
+    //     {
+    //       id: 28,
+    //       name: "Daboudi",
+    //       email: "daboudi@patati.com",
+    //       lists: [
+    //         {
+    //           id: 22,
+    //           title: "shopping",
+    //           items: [
+    //             {
+    //               id: 62,
+    //               body: "banana",
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           id: 2,
+    //           title: "todo",
+    //           items: [
+    //             {
+    //               id: 6,
+    //               body: "do a todo list",
+    //             },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // });
   },
   computed: {
-    user() {
-      return User.query().with("lists.items").with("items").find(28);
-    },
+    // user() {
+    //   return User.query().with("lists.items").with("items").find(28);
+    // },
   },
   methods: {
-    addList() {
-      List.insert({ data: this.form });
-    },
+    // addList() {
+    //   List.insert({ data: this.form });
+    // },
   },
 };
 </script>

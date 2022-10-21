@@ -2,17 +2,38 @@ import { Model } from "@vuex-orm/core";
 import Image from "./Image.class";
 import Item from "./Item.class";
 import List from "./List.class";
+0;
+
 import Profile from "./Profile.class";
 import Role from "./Role.class";
 import RoleUser from "./RoleUser.class";
+import moment from "moment";
+
 export default class User extends Model {
   static entity = "users";
+
+  get full_name() {
+    return `${this.first_name} ${this.last_name}`;
+  }
+
+  static mutators() {
+    return {
+      last_name(value) {
+        return value.toUpperCase();
+      },
+      date_born(value) {
+        return moment(value);
+      },
+    };
+  }
 
   static fields() {
     return {
       id: this.uid(),
-      name: this.attr(""),
+      first_name: this.attr(""),
+      last_name: this.attr(""),
       email: this.attr(""),
+      date_born: this.attr(""),
       // relationships
       profile: this.hasOne(Profile, "user_id"),
       // A user has many List
