@@ -17,7 +17,12 @@ export default {
   },
   computed: {
     results() {
-      return Post.query().has("comments", "<=", 1).get();
+      return Post.query()
+        .with("comments")
+        .whereHas("comments", (query) => {
+          query.where("user_id", 3).get();
+        })
+        .get();
     },
   },
 };
