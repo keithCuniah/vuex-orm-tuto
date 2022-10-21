@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     results() {
-      return Post.query().has("comments").get();
+      return Post.query().has("comments", "<=", 1).get();
     },
   },
 };
