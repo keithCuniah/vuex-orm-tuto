@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AccessorsAndMutatorsComponent />
+    <AdvancedQueriesComponent />
     <!-- <div style="float: left">
       <h1>{{ user.name }}</h1>
 
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import AccessorsAndMutatorsComponent from "./components/AccessorsAndMutators.component.vue";
+import AdvancedQueriesComponent from "./components/AdvancedQueries.component.vue";
 export default {
   name: "App",
   components: {
-    AccessorsAndMutatorsComponent,
+    AdvancedQueriesComponent,
   },
   data() {
     return {
