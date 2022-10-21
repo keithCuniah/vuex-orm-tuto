@@ -9,6 +9,7 @@
 <script>
 import insertUsers from "@/orm-queries/inserUsers.ormQuery";
 import User from "@/classes/User.class";
+import Post from "@/classes/Post.class";
 export default {
   name: "AdvancedRelationshipQueries",
   mounted() {
@@ -16,11 +17,7 @@ export default {
   },
   computed: {
     results() {
-      return User.query()
-        .with("posts.comments", (query) => {
-          query.where("type", 'reviewed');
-        })
-        .get();
+      return Post.query().has("comments").get();
     },
   },
 };
