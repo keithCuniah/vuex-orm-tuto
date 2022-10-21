@@ -2,12 +2,11 @@ import { Model } from "@vuex-orm/core";
 import Image from "./Image.class";
 import Item from "./Item.class";
 import List from "./List.class";
-0;
-
 import Profile from "./Profile.class";
 import Role from "./Role.class";
 import RoleUser from "./RoleUser.class";
 import moment from "moment";
+import Post from "./Post.class";
 
 export default class User extends Model {
   static entity = "users";
@@ -36,6 +35,7 @@ export default class User extends Model {
       age: this.attr(""),
       date_born: this.attr(""),
       // relationships
+      posts: this.hasMany(Post, "user_id"),
       profile: this.hasOne(Profile, "user_id"),
       // A user has many List
       lists: this.hasMany(List, "user_id"),

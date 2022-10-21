@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AdvancedQueriesComponent />
+    <AdvancedRelationshipQueriesComponent />
     <!-- <div style="float: left">
       <h1>{{ user.name }}</h1>
 
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import AdvancedQueriesComponent from "./components/AdvancedQueries.component.vue";
+import AdvancedRelationshipQueriesComponent from "./components/AdvancedRelationshipQueries.component.vue";
 export default {
   name: "App",
   components: {
-    AdvancedQueriesComponent,
+    AdvancedRelationshipQueriesComponent,
   },
   data() {
     return {
