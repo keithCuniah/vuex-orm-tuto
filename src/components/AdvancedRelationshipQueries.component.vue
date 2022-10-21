@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     results() {
-      return User.query().with("posts.comments").with("posts.tags").get();
+      return User.query().withAllRecursive(5).get();
     },
   },
 };
